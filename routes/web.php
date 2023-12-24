@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\SingleController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\SingleController;
+use App\Http\Middleware\CheckIfNameIsAhmed;
+use App\Http\Controllers\Users\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // Route::get('/mahmoud', [TestController::class, 'mahmoud']);
 
@@ -33,12 +34,13 @@ Route::get('/', function () {
 // });
 
 // ROUTES GROUPS
-// Route::controller(TestController::class)->name('test.')->group(function () {
-//     Route::get('/mahmoud', 'mahmoud')->name('index');
-//     Route::get('/printName/{name?}', 'printName')->name('printMyNameRoute');
-// });
+Route::controller(TestController::class)->name('test.')->middleware('check_ahmed')->group(function () {
+    Route::get('/mahmoud', 'mahmoud')->name('index');
+    Route::get('/printName/{name?}', 'printName')->name('printMyNameRoute');
+});
 
 // Route::get('/hello', [UserController::class, 'index']);
-// Route::get('/hello', SingleController::class);
+Route::get('/hello', SingleController::class);
+Route::get('/hello2', SingleController::class);
 
-Route::resource('posts', PostController::class)->except(['index', 'show']);
+// Route::resource('posts', PostController::class)->except(['index', 'show']);
