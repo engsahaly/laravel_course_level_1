@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SingleController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/mahmoud', [TestController::class, 'mahmoud']);
+// Route::get('/mahmoud', [TestController::class, 'mahmoud']);
 
-Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('printMyNameRoute');
+// Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('printMyNameRoute');
 
 // Route::view('/mahmoud', 'welcome');
 // Route::redirect('/here', 'https://www.google.com/');
@@ -34,3 +37,8 @@ Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('pr
 //     Route::get('/mahmoud', 'mahmoud')->name('index');
 //     Route::get('/printName/{name?}', 'printName')->name('printMyNameRoute');
 // });
+
+// Route::get('/hello', [UserController::class, 'index']);
+// Route::get('/hello', SingleController::class);
+
+Route::resource('posts', PostController::class)->except(['index', 'show']);

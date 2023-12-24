@@ -862,7 +862,7 @@
             </div>
 
             <h3>Hello From Index File</h3>
-            <a href="{{ route('printMyNameRoute', ['name' => 'Yasser']) }}" style="color:red;">Print My Name</a>
+            <a target="_blank" href="{{ route('posts.create') }}" style="color:red;">Go to index function</a>
 
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
