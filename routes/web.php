@@ -19,7 +19,8 @@ use App\Http\Middleware\CheckIfNameIsAhmed;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = ['1', '2', '3'];
+    return view('posts.create.index.mahmoud', compact('data'));
 });
 
 // Route::get('/mahmoud', [TestController::class, 'mahmoud']);
@@ -39,7 +40,7 @@ Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('pr
 //     Route::get('/printName/{name?}', 'printName')->name('printMyNameRoute');
 // });
 
-Route::get('/hello', [UserController::class, 'index']);
+// Route::get('/hello', [UserController::class, 'index']);
 // Route::get('/hello', SingleController::class);
 // Route::get('/hello2', SingleController::class);
 
