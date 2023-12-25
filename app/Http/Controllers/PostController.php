@@ -9,9 +9,14 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd('Hello from index function inside post controller resource file');
+        // dd($request->all());
+        // $age = $request->query('age', 20);
+        // $data = $request->except(['name', 'age', 'country']);
+        // dd($data);
+        // dd('Hello from index function inside post controller resource file');
+        return redirect()->action([UserController::class, 'index']);
     }
 
     /**
