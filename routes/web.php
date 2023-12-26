@@ -19,7 +19,7 @@ use App\Http\Middleware\CheckIfNameIsAhmed;
 */
 
 Route::get('/', function () {
-    $data = ['1', '2', '3'];
+    $data = 'Yasser';
     return view('posts.create.index.mahmoud', compact('data'));
 });
 
