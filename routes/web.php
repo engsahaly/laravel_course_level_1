@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SingleController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Middleware\CheckIfNameIsAhmed;
 
 /*
@@ -18,14 +19,14 @@ use App\Http\Middleware\CheckIfNameIsAhmed;
 |
 */
 
-Route::get('/', function () {
-    $data = 'Yasser';
-    return view('posts.create.index.mahmoud', compact('data'));
-});
+// Route::get('/', function () {
+//     $data = 'Yasser';
+//     return view('posts.create.index.mahmoud', compact('data'));
+// });
 
 // Route::get('/mahmoud', [TestController::class, 'mahmoud']);
 
-Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('printMyNameRoute');
+// Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('printMyNameRoute');
 
 // Route::view('/mahmoud', 'welcome');
 // Route::redirect('/here', 'https://www.google.com/');
@@ -44,4 +45,11 @@ Route::get('/printName/{name?}', [TestController::class, 'printName'])->name('pr
 // Route::get('/hello', SingleController::class);
 // Route::get('/hello2', SingleController::class);
 
-Route::resource('posts', PostController::class);
+// Route::resource('posts', PostController::class);
+
+// THEME ROUTES
+Route::controller(ThemeController::class)->name('theme.')->group(function () {
+    Route::get('/about', 'about')->name('about');
+    Route::get('/services', 'services')->name('services');
+    Route::get('/contact', 'contact')->name('contact');
+});
