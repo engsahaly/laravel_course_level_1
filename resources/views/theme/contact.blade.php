@@ -65,29 +65,56 @@
                             </div>
                         </div>
 
-                        <form>
+                        <form action="{{ route('theme.contact.store') }}" method="POST">
+                            @csrf
+
+                            {{-- @if ($errors->any())
+                                <div style="border: 1px solid blue;">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li style="color:red;">{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif --}}
+
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="fname">First name</label>
-                                        <input type="text" class="form-control" id="fname">
+                                        <input type="text" class="form-control" id="fname" name="first_name"
+                                            value="{{ old('first_name') }}">
+                                        @error('first_name')
+                                            <span style="color:red;">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="lname">Last name</label>
-                                        <input type="text" class="form-control" id="lname">
+                                        <input type="text" class="form-control" id="lname" name="last_name"
+                                            value="{{ old('last_name') }}">
+                                        @error('last_name')
+                                            <span style="color:red;">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="text-black" for="email">Email address</label>
-                                <input type="email" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email" name="email"
+                                    value="{{ old('email') }}">
+                                @error('email')
+                                    <span style="color:red;">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group mb-5">
                                 <label class="text-black" for="message">Message</label>
-                                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                                <textarea name="message" class="form-control" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
+                                @error('message')
+                                    <span style="color:red;">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
