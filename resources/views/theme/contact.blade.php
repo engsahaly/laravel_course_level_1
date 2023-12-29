@@ -68,6 +68,12 @@
                         <form action="{{ route('theme.contact.store') }}" method="POST">
                             @csrf
 
+                            @if (session('status'))
+                                <div style="border: 1px solid green; color:blue;">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+
                             {{-- @if ($errors->any())
                                 <div style="border: 1px solid blue;">
                                     <ul>
