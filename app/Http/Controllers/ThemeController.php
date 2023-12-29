@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Models\Category;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -61,7 +62,12 @@ class ThemeController extends Controller
 
         // dd('Created successfully');
 
-        return view('theme.contact');
+        $categories = Category::all();
+        return view('theme.contact', compact('categories'));
+
+        // GET RELATIONSHIP
+        // $contact = Contact::find(13);
+        // dd($contact->category->name);
     }
 
     public function store(StoreContactRequest $request)

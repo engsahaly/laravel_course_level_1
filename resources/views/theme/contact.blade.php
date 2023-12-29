@@ -106,13 +106,30 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="text-black" for="email">Email address</label>
-                                <input type="text" class="form-control" id="email" name="email"
-                                    value="{{ old('email') }}">
-                                @error('email')
-                                    <span style="color:red;">{{ $message }}</span>
-                                @enderror
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="text-black" for="email">Email address</label>
+                                    <input type="text" class="form-control" id="email" name="email"
+                                        value="{{ old('email') }}">
+                                    @error('email')
+                                        <span style="color:red;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-6">
+                                    <label class="text-black" for="category">Category</label>
+                                    <select class="form-control" name="category_id">
+                                        <option value="">Select Category</option>
+                                        @if (count($categories) > 0)
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    @error('category_id')
+                                        <span style="color:red;">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="form-group mb-5">
