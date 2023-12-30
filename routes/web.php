@@ -53,4 +53,5 @@ Route::controller(ThemeController::class)->name('theme.')->group(function () {
     Route::get('/services', 'services')->name('services');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact/store', 'store')->name('contact.store');
+    Route::get('/displayContacts', 'display')->name('display');
 });

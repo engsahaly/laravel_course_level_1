@@ -88,4 +88,10 @@ class ThemeController extends Controller
 
         return back()->with('status', 'Your message has been sent successfully!');
     }
+
+    public function display()
+    {
+        $data = Contact::paginate(5);
+        return view('theme.display-contacts', compact('data'));
+    }
 }
