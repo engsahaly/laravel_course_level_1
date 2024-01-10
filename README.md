@@ -1,4 +1,4 @@
-## Laravel For Absolute Beginners Course Files on Udemy (LEVEL 1)
+## Laravel For Absolute Beginners Course Files on Udemy (FUNDAMENTALS)
 
 <img src="https://img-b.udemycdn.com/course/750x422/5747534_0b8e_2.jpg">
 
